@@ -8,18 +8,18 @@ function js_custom_init()
 	// Register the Homepage Slides
   
      $labels = array(
-	'name' => _x('Slides', 'post type general name'),
-    'singular_name' => _x('Slide', 'post type singular name'),
-    'add_new' => _x('Add New', 'Slide'),
-    'add_new_item' => __('Add New Slide'),
-    'edit_item' => __('Edit Slides'),
-    'new_item' => __('New Slide'),
-    'view_item' => __('View Slides'),
-    'search_items' => __('Search Slides'),
-    'not_found' =>  __('No Slides found'),
-    'not_found_in_trash' => __('No Slides found in Trash'), 
+	'name' => _x('Job', 'post type general name'),
+    'singular_name' => _x('Job', 'post type singular name'),
+    'add_new' => _x('Add New', 'Job'),
+    'add_new_item' => __('Add New Job'),
+    'edit_item' => __('Edit Job'),
+    'new_item' => __('New Job'),
+    'view_item' => __('View Job'),
+    'search_items' => __('Search Jobs'),
+    'not_found' =>  __('No Jobs found'),
+    'not_found_in_trash' => __('No Jobs found in Trash'),
     'parent_item_colon' => '',
-    'menu_name' => 'Slides'
+    'menu_name' => 'Jobs'
   );
   $args = array(
 	'labels' => $labels,
@@ -36,10 +36,40 @@ function js_custom_init()
     'supports' => array('title','editor','custom-fields','thumbnail'),
 	
   ); 
-  register_post_type('slides',$args); // name used in query
+  register_post_type('job',$args); // name used in query
   
   // Add more between here
   
   // and here
   
   } // close custom post type
+
+/*##############################################
+Custom Taxonomies     */
+add_action( 'init', 'build_taxonomies', 0 );
+
+function build_taxonomies() {
+// custom tax
+	register_taxonomy( 'position', 'job',
+		array(
+			'hierarchical' => true, // true = acts like categories false = acts like tags
+			'label' => 'Position',
+			'query_var' => true,
+			'show_admin_column' => true,
+			'public' => true,
+			'rewrite' => array( 'slug' => 'position' ),
+			'_builtin' => true
+		) );
+
+	register_taxonomy( 'location', 'job',
+		array(
+			'hierarchical' => true, // true = acts like categories false = acts like tags
+			'label' => 'Location',
+			'query_var' => true,
+			'show_admin_column' => true,
+			'public' => true,
+			'rewrite' => array( 'slug' => 'location' ),
+			'_builtin' => true
+		) );
+
+} // End build taxonomies
