@@ -16,13 +16,13 @@
     $type     = array();
     $combined = array();
     $where    = array();
-    if ( isset( $_GET['type'] ) ) {
+    if ( isset( $_GET['type'] ) && !empty($_GET['type'])) {
         $type['taxonomy'] = 'position';
         $type['field']    = 'slug';
         $type['terms']    = $_GET['type'];
         $combined[]       = $type;
     }
-    if ( isset( $_GET['where'] ) ) {
+    if ( isset( $_GET['where'] ) && !empty($_GET['where']) ) {
         $where['taxonomy'] = 'location';
         $where['field']    = 'slug';
         $where['terms']    = $_GET['where'];

@@ -18,7 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
             <?php if ( have_posts() ) :?>
 
-                <?php get_template_part( 'template-parts/search', 'form' ); ?>
+                <?php get_template_part( 'template-parts/content', 'index' ); ?>
 
             <?php endif;?>
 		</main><!-- #main -->
