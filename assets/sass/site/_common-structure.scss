@@ -161,12 +161,12 @@
           display: none;
         }
       }
-      #primary-menu {
+      .menu-primary-container {
         display: none;
         @media screen and (min-width: $tabwidth){
           display: block;
         }
-        > ul {
+        > ul#primary-menu {
           margin: 0;
           padding: 0;
           @include flexbox;
@@ -205,5 +205,92 @@
         }
       }
     }
+  }
+}
+#colophon {
+  padding: 20px;
+  background-color: $color__trav-black;
+  color: $color__trav-orange;
+  text-align: center;
+  @media screen and (min-width: $tabwidth) {
+    padding: 5% 8%;
+  }
+  >.row-1 {
+    width: 125px;
+    margin: 0 auto 30px auto;
+    @include flexbox;
+    @include flexbox-align-content(center);
+    @include flexbox-align-items(center);
+    @include flexbox-direction(row);
+    @include flexbox-justify(space-between);
+    @media screen and (min-width: $tabwidth){
+      margin: 0 auto 5% auto;
+    }
+    a {
+      @include flexbox-flex(0,1,auto);
+      color: inherit;
+      display: block;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+  >.row-2 {
+    margin: 0 0 20px 0;
+    @media screen and (min-width: $tabwidth) {
+      margin: 0 0 3% 0;
+    }
+    .menu-footer-container {
+      >ul#footer-menu {
+        margin: 0;
+        padding: 0;
+        @include flexbox;
+        @include flexbox-direction(column);
+        @include flexbox-align-content(center);
+        @include flexbox-align-items(center);
+        @include flexbox-justify(center);
+        width: 100%;
+        @media screen and (min-width: $tabwidth){
+          @include flexbox-direction(row);
+          @include flexbox-justify(center);
+        }
+        li {
+          @include flexbox-flex(0,1,auto);
+          display: block;
+          &:first-child {
+            a {
+              &:before {
+                display: none;
+              }
+            }
+          }
+          a {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+            &:before {
+              display: none;
+              @media screen and (min-width: $tabwidth) {
+                content: "|";
+                display: inline-block;
+                margin: 0 20px;
+              }
+            }
+            &:hover {
+              text-decoration: none;
+              color: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+  >.row-3 {
+
   }
 }
