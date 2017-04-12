@@ -24,12 +24,34 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header" role="banner">
             <div class="row-1">
-                <div class="col-1">
-                    <!--.phone-->
-                </div><!--.col-1-->
-                <div class="col-2">
-                    <!--social-->
-                </div><!--.col-2-->
+                <?php $phone = get_field("phone_number","option");
+                if($phone):?>
+                    <div class="col-1">
+                        <?php echo $phone;?>
+                    </div><!--.col-1-->
+                <?php endif;?>
+                <?php $facebook = get_field("facebook_link","option");
+                $instagram = get_field("instagram_link","option");
+                $twitter = get_field("twitter_link","option");
+                if($twitter||$instagram||$facebook):?>
+                    <div class="col-2">
+	                    <?php if($facebook):?>
+                            <a href="<?php echo $facebook;?>" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+	                    <?php endif;?>
+	                    <?php if($instagram):?>
+                            <a href="<?php echo $instagram;?>" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+	                    <?php endif;?>
+	                    <?php if($twitter):?>
+                            <a href="<?php echo $twitter;?>" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+	                    <?php endif;?>
+                    </div><!--.col-2-->
+                <?php endif;?>
             </div><!--.row-1-->
             <div class="row-2">
                 <?php if(is_home()) { ?>
@@ -43,7 +65,7 @@
                 <?php } ?>
 
                 <nav id="site-navigation" class="main-navigation" role="navigation">
-                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'acstarter' ); ?></button>
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'acstarter' ); ?></button>
                     <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
                 </nav><!-- #site-navigation -->
             </div><!--.row-2-->
