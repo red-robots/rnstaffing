@@ -112,6 +112,13 @@
                     </div><!--.result-->
                 <?php endwhile;?>
             </div><!--.results-->
-        <?php endif;?>
+        <?php else:
+            $no_results_message = get_field("no_results_message");
+            if($no_results_message):?>
+                <div class="copy">
+                    <?php echo $no_results_message;?>
+                </div>
+            <?php endif;
+        endif;?>
     </div><!--.row-2-->
 </article><!-- #post-## -->

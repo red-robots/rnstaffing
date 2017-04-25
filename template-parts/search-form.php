@@ -30,7 +30,7 @@ $position_terms  = get_terms( $position_args );
             <?php if(!is_wp_error($position_terms)&&is_array($position_terms)&&!empty($position_terms)):?>
                 <div class="selector">
                     <?php foreach($position_terms as $term):?>
-                        <div style="display: none;" class="option value-<?php echo $term->slug;?>"><?php echo $term->name;?></div>
+                        <div style="display: none;" class="option value;<?php echo $term->slug;?>"><?php echo $term->name;?></div>
                     <?php endforeach;?>
                 </div><!--.selector-->
             <?php endif;?>
@@ -41,7 +41,7 @@ $position_terms  = get_terms( $position_args );
             <?php if(!is_wp_error($location_terms)&&is_array($location_terms)&&!empty($location_terms)):?>
                 <div class="selector">
                     <?php foreach($location_terms as $term):?>
-                        <div style="display: none;" class="option value-<?php echo $term->slug;?>"><?php echo $term->name;?></div>
+                        <div style="display: none;" class="option value;<?php echo $term->slug;?>"><?php echo $term->name;?></div>
                     <?php endforeach;?>
                 </div><!--.selector-->
             <?php endif;?>

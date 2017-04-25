@@ -94,11 +94,11 @@ jQuery(document).ready(function ($) {
         var $hidden_input = $wrapper.find('.search-input-hidden');
         $selector.css("display","none");
         var classes = this.className;
-        var regex = new RegExp("\\s*value-.+\\s*");
+        var regex = new RegExp("\\s*value;.+\\s*");
         var matches = classes.match(regex);
         var val = "";
         if(matches){
-            val = matches[0].split("-")[1];
+            val = matches[0].split(";")[1];
         }
         $search_input.val($this.text());
         $hidden_input.val(val);
