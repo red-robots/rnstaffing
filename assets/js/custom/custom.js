@@ -72,6 +72,8 @@ jQuery(document).ready(function ($) {
         var $this = $(this);
         var input = $this.val();
         var $wrapper = $this.parent();
+        var $hidden_input = $wrapper.find('.search-input-hidden');
+        $hidden_input.val(input);
         var $selector = $wrapper.find('.selector');
         var $options = $selector.find('.option');
         $selector.show();
