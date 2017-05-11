@@ -9,33 +9,21 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php
-			the_content();
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'acstarter' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'acstarter' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-		?>
-	</footer><!-- .entry-footer -->
+<article id="post-<?php the_ID(); ?>" <?php post_class("template-page"); ?>>
+	<?php $row_1_image = get_field( "row_1_image" );?>
+    <div class="row-1 row-search" <?php if ( $row_1_image ): ?>
+        style="background-image: url(<?php echo $row_1_image['url']; ?>);"
+	<?php endif; ?>>
+		<?php get_template_part( "template-parts/search", "form" ); ?>
+    </div><!--.row-1-->
+    <div class="row-2">
+        <header>
+            <h1><?php the_title();?></h1>
+        </header>
+		<?php if(get_the_content()):?>
+			<div class="copy">
+				<?php the_content();?>
+			</div><!--.copy-->
+		<?php endif;?>
+    </div><!--.row-2-->
 </article><!-- #post-## -->
