@@ -7,16 +7,25 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( "template-index" ); ?>>
 	<?php $post = get_post( 13 );
 	setup_postdata( $post );
-	$row_1_image = get_field( "row_1_image" );
+	$row_1_video = get_field( "row_1_video" );
 	$banner_text = get_field("banner_text");?>
 	<?php wp_reset_postdata(); ?>
-    <div class="row-1" <?php if ( $row_1_image ): ?>
-        style="background-image: url(<?php echo $row_1_image['url']; ?>);"
-	<?php endif; ?>>
-		<?php get_template_part( "template-parts/search", "form" ); ?>
+    <div class="row-1">
+        <?php if($row_1_video):?>
+            <div class="video-wrapper">
+                <video autoplay muted loop>
+                    <source src="<?php echo $row_1_video['url'];?>" type="video/mp4">
+                    Your browser doesn't support html5 video
+                </video>
+            </div><!--.video-wrapper-->
+        <?php endif;?>
         <div class="banner-text">
             <?php echo $banner_text;?>
         </div>
+		<?php get_template_part( "template-parts/search", "form-single" ); ?>
+        <div class="down-icon">
+            <i class="fa fa-chevron-circle-down"></i>
+        </div><!--.down-icon-->
     </div><!--.row-1-->
 	<?php $post = get_post( 13 );
 	setup_postdata( $post ); ?>

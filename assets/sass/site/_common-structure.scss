@@ -76,83 +76,42 @@
     @include flexbox-align-items(center);
     @include flexbox-justify(center);
     width: 100%;
+    background-color: $color__trav-blue;
     padding: 10px;
     @media screen and (min-width: $tabwidth){
       @include flexbox-direction(row);
       @include flexbox-justify(space-between);
       padding: 20px 8%;
     }
-    >.col-1 {
-      @include flexbox-flex(0,1,auto);
-      color: $color__trav-red;
-      font-size: 22px;
-      margin: 0 0 10px 0;
-      @media screen and (min-width: $tabwidth){
-        margin: 0;
-      }
-    }
-    >.col-2 {
-      @include flexbox-flex(0,1,auto);
-      width: 125px;
-      @include flexbox;
-      @include flexbox-align-content(center);
-      @include flexbox-align-items(center);
-      @include flexbox-direction(row);
-      @include flexbox-justify(space-between);
-      color: $color__trav-red;
-      a {
-        @include flexbox-flex(0,1,auto);
-        color: inherit;
-        display: block;
-        text-decoration: none;
-        &:hover {
-          text-decoration: none;
-          color: inherit;
-        }
-        i {
-          font-size: 20px;
-        }
-      }
-    }
-  }
-  >.row-2 {
-    @include flexbox;
-    @include flexbox-direction(column);
-    @include flexbox-align-content(center);
-    @include flexbox-align-items(center);
-    @include flexbox-justify(center);
-    width: 100%;
-    padding: 20px;
-    background-color: $color__trav-blue;
-    @media screen and (min-width: $tabwidth){
-      @include flexbox-direction(row);
-      @include flexbox-justify(space-between);
-      padding: 4% 8%;
-    }
-    .logo {
+    >.col-1.logo {
       @include flexbox-flex(0,1,auto);
       width: 50%;
-      margin: 0 auto 20px auto;
+      margin: 0 0 20px 0;
       @media screen and (min-width: $tabwidth){
-        width: 40%;
+        width: 25%;
         margin: 0;
+      }
+      @media screen and (min-width: $midwidth){
+        width: 20%;
       }
       img {
         display: block;
         width: 100%;
       }
     }
-    #site-navigation {
+    #site-navigation.col-2 {
       @include flexbox-flex(0,1,auto);
       width: 100%;
+      margin-bottom: 20px;
       @media screen and (min-width: $tabwidth){
-        width: 60%;
+        width: 40%;
+        margin: 0;
       }
-      @media screen and (min-width: $deskwidth){
+      @media screen and (min-width: $midwidth){
         width: 30%;
       }
       &.toggled {
-        #primary-menu {
+        .menu-primary-container {
           display: block;
         }
       }
@@ -192,7 +151,7 @@
           li {
             @include flexbox-flex(0,1,auto);
             display: block;
-            margin: 20px 0 0 0;
+            margin: 20px 0;
             list-style-type: none;
             color: white;
             font-size: 18px;
@@ -214,6 +173,22 @@
             }
           }
         }
+      }
+    }
+    .col-3 {
+      @include flexbox-flex(0,1,auto);
+      width: 100%;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      @media screen and (min-width: $tabwidth) {
+        margin: 0;
+        width: 25%;
+        text-align: right;
+      }
+      @media screen and (min-width: $midwidth){
+        font-size: 22px;
+        width: 20%;
       }
     }
   }
